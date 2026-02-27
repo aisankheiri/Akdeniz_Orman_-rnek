@@ -7,12 +7,17 @@
   padding-top: 62px; /* sticky header yüksekliği kadar */
 }
 
-.hero__bg {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  z-index: 0;
+.hero__bg{
+  position:absolute;
+  inset:0;
+  overflow:hidden;
+}
+
+.hero__image{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
 }
 
 .hero__overlay {

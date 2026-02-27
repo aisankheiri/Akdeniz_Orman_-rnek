@@ -3,10 +3,15 @@ import "../../styles/hero.css";
 export default function HeroSection({ t, go }) {
   return (
     <section className="hero">
-      <div
-        className="hero__bg"
-        style={{ backgroundImage: "url(/assets/hero.jpg)" }}
-      />
+      <div className="hero__bg">
+        <img
+          src="/assets/hero.jpg"
+          alt=""
+          className="hero__image"
+          loading="eager"
+          fetchpriority="high"
+        />
+      </div>
       <div className="hero__overlay" />
 
       <div className="container hero__content">
