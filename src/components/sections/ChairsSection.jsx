@@ -23,6 +23,15 @@ export default function ChairsSection({ t }) {
         return () => window.removeEventListener("keydown", onKey);
     }, [active]);
 
+    useEffect(() => {
+        if (!active) return;
+        const prev = document.body.style.overflow;
+        document.body.style.overflow = "hidden";
+        return () => {
+            document.body.style.overflow = prev;
+        };
+    }, [active]);
+
     return (
         <Section id="chairs" title={t.chairs_title} desc={t.chairs_desc} alt>
             <div className="chairs">
@@ -68,7 +77,7 @@ export default function ChairsSection({ t }) {
                                     </ul>
                                 </div>
 
-                                
+
                             </div>
                         </div>
                     </div>

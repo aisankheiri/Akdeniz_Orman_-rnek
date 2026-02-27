@@ -117,14 +117,26 @@
   padding: 18px;
 }
 
+/* Panel zaten max-height almış, şimdi içeriği scroll yapıyoruz */
 .cmodal__panel{
   width: min(1050px, 96vw);
   background: #fff;
   border-radius: 22px;
-  overflow: hidden;
+  overflow: hidden;          /* panel dışı taşmayı kes */
   position: relative;
   box-shadow: 0 30px 90px rgba(0,0,0,.35);
   max-height: 86vh;
+  display: flex;             /* ✅ içerik yüksekliği yönetimi */
+  flex-direction: column;
+}
+
+/* İçerik alanı panelin içinde kalsın ve gerekirse scroll olsun */
+.cmodal__content{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
+  flex: 1;                   /* ✅ panelin kalan yüksekliğini alsın */
+  min-height: 0;             /* ✅ overflow çalışması için kritik */
 }
 
 .cmodal__close{
@@ -140,11 +152,6 @@
   font-size: 18px;
 }
 
-.cmodal__content{
-  display: grid;
-  grid-template-columns: 1fr 1fr; /* yarı yarıya */
-  align-items: center;
-}
 
 .cmodal__imgWrap{
   padding: 30px;
@@ -164,8 +171,32 @@
   box-shadow: 0 25px 60px rgba(0,0,0,.18);
 }
 
+/* Panel zaten max-height almış, şimdi içeriği scroll yapıyoruz */
+.cmodal__panel{
+  width: min(1050px, 96vw);
+  background: #fff;
+  border-radius: 22px;
+  overflow: hidden;          /* panel dışı taşmayı kes */
+  position: relative;
+  box-shadow: 0 30px 90px rgba(0,0,0,.35);
+  max-height: 86vh;
+  display: flex;             /* ✅ içerik yüksekliği yönetimi */
+  flex-direction: column;
+}
+
+/* İçerik alanı panelin içinde kalsın ve gerekirse scroll olsun */
+.cmodal__content{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
+  flex: 1;                   /* ✅ panelin kalan yüksekliğini alsın */
+  min-height: 0;             /* ✅ overflow çalışması için kritik */
+}
 .cmodal__info{
   padding: 22px;
+  overflow: auto;            /* ✅ uzun metinde scroll */
+  -webkit-overflow-scrolling: touch;
+  min-height: 0;
 }
 
 .cmodal__title{
@@ -205,6 +236,21 @@
   .chairCard{ width: 230px; }
   .chairCard__img{ height: 290px; }
 
-  .cmodal__content{ grid-template-columns: 1fr; }
-  .cmodal__img{ min-height: 280px; }
+  .cmodal__content{
+    grid-template-columns: 1fr;
+  }
+
+  .cmodal__imgWrap{
+    padding: 16px;
+  }
+
+  .cmodal__img{
+    max-height: 260px;       /* ✅ mobilde görsel daha küçük */
+  }
+
+  .cmodal__info{
+    padding: 16px;
+    max-height: calc(86vh - 260px); /* ✅ kalan alanda scroll */
+    overflow: auto;
+  }
 }
