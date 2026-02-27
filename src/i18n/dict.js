@@ -46,7 +46,7 @@ export const dict = {
 
     footer_phone: "+90 (552) 861 86 06",
     footer_mail: "aisankheiri20@gmail.com",
-    footer_addr: "Ataşehir, İstanbul, Türkiye.",
+    footer_addr: "Ataşehir, İstanbul, Türkiye",
 
     view_detail: "Detayı Gör",
     specs: "Özellikler",
