@@ -1,0 +1,57 @@
+.hero {
+  position: relative;
+  height: 85vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding-top: 62px; /* sticky header yüksekliği kadar */
+}
+
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+}
+
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.45);
+  z-index: 1;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 2;
+  color: white;
+}
+
+.hero__kicker {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 14px;
+  opacity: .8;
+}
+
+.hero__title {
+  font-size: 56px;
+  margin: 10px 0;
+  font-weight: 800;
+}
+
+.hero__subtitle {
+  max-width: 520px;
+  opacity: .9;
+  margin-bottom: 24px;
+}
+
+.hero__cta {
+  display: flex;
+  gap: 16px;
+}
+
+@media (max-width: 768px){
+  .hero__title { font-size: 36px; }
+}
